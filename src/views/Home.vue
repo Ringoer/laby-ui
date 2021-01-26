@@ -49,14 +49,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$green: #02b0bc;
+$green: #3593ff;
 $border-radius: 4px;
-$color: #007974;
+$color: #ffffff;
 .topnavAndBanner {
   background: linear-gradient(
     145deg,
-    rgb(255, 248, 227) 0%,
-    rgb(183, 233, 229) 100%
+    rgb(187, 214, 255) 0%,
+    rgb(0, 48, 136) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
 }
@@ -115,11 +115,14 @@ $color: #007974;
 }
 .banner {
   color: $color;
-  padding: 150px 0;
+  padding: 100px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  > * {
+    margin: 12px 0;
+  }
   > .actions {
     padding: 8px 0;
     a {

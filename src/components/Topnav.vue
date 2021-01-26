@@ -7,7 +7,11 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/document">文档</router-link>
+        <router-link to="/document">
+          <svg class="icon">
+            <use xlink:href="#icon-book"></use>
+          </svg>
+        </router-link>
       </li>
     </ul>
     <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
@@ -38,11 +42,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #007974;
+$color: #008ada;
 .topnav {
   color: $color;
   display: flex;
-  padding: 8px 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 97%,
+    rgba(67, 127, 246, 1) 97%,
+    rgba(67, 127, 246, 1) 100%
+  );
+  padding: 0 32px;
   position: fixed;
   top: 0;
   left: 0;
@@ -64,6 +75,10 @@ $color: #007974;
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
+      > a > svg {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
   > .toggleAside {

@@ -17,17 +17,10 @@
         </ol>
         <h2>组件列表</h2>
         <ol>
-          <li>
-            <router-link to="/document/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/document/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/document/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/document/tabs">Tabs 组件</router-link>
+          <li v-for="(component, index) in components" :key="index">
+            <router-link :to="'/document/' + component.toLowerCase()">
+              {{ component }}
+            </router-link>
           </li>
         </ol>
       </aside>
@@ -42,6 +35,11 @@
 import Topnav from "../components/Topnav.vue";
 import { inject, Ref } from "vue";
 export default {
+  data() {
+    return {
+      components: ["Switch", "Button", "Dialog", "Tabs"],
+    };
+  },
   components: {
     Topnav,
   },
@@ -66,7 +64,7 @@ $aside-index: 10;
   > .content {
     flex-grow: 1;
     padding-top: 90px;
-    padding-left: 156px;
+    padding-left: 210px;
     @media (max-width: 500px) {
       padding-left: 0;
     }
@@ -81,11 +79,17 @@ $aside-index: 10;
     flex-grow: 1;
     padding: 16px;
     background: white;
+    border: 1px solid red;
+    margin-top: 4px;
+    margin-right: 10px;
+    @media (max-width: 500px) {
+      margin-left: 10px;
+    }
   }
 }
 aside {
-  background: lightblue;
-  width: 150px;
+  background: rgb(185, 233, 255);
+  width: 200px;
   padding: 16px 0;
   position: fixed;
   top: 0;
@@ -95,17 +99,23 @@ aside {
   z-index: $aside-index;
   > h2 {
     margin-bottom: 4px;
-    padding: 0 16px;
+    padding: 4px 16px;
   }
   > ol {
     > li {
       > a {
         display: block;
-        padding: 4px 16px;
+        padding: 8px 32px;
         text-decoration: none;
       }
       .router-link-active {
-        background: white;
+        background: linear-gradient(
+          90deg,
+          rgba(67, 127, 246, 1) 0%,
+          rgba(67, 127, 246, 1) 3%,
+          rgba(255, 255, 255, 1) 3%,
+          rgba(255, 255, 255, 1) 100%
+        );
       }
     }
   }
