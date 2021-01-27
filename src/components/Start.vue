@@ -1,6 +1,6 @@
 <template>
   <div>快速开始</div>
 </template>
-<script>
+<script lang="ts">
 export default {};
 </script>

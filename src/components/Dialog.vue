@@ -1,6 +1,6 @@
 <template>
   <div>Dialog Doc</div>
 </template>
-<script>
+<script lang="ts">
 export default {};
 </script>

@@ -53,7 +53,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$base-color: #fe9acf;
 $aside-index: 10;
+$active-color: linear-gradient(
+  90deg,
+  $base-color 0%,
+  $base-color 3%,
+  rgba(255, 255, 255, 1) 3%,
+  rgba(255, 255, 255, 1) 100%
+);
 .layout {
   display: flex;
   flex-direction: column;
@@ -88,7 +96,7 @@ $aside-index: 10;
   }
 }
 aside {
-  background: rgb(185, 233, 255);
+  background: #fdd1e8;
   width: 200px;
   padding: 16px 0;
   position: fixed;
@@ -107,15 +115,13 @@ aside {
         display: block;
         padding: 8px 32px;
         text-decoration: none;
+        transition: background-color 100ms;
+        &:hover {
+          background: $active-color;
+        }
       }
       .router-link-active {
-        background: linear-gradient(
-          90deg,
-          rgba(67, 127, 246, 1) 0%,
-          rgba(67, 127, 246, 1) 3%,
-          rgba(255, 255, 255, 1) 3%,
-          rgba(255, 255, 255, 1) 100%
-        );
+        background: $active-color;
       }
     }
   }

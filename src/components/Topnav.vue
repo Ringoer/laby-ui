@@ -1,16 +1,12 @@
 <template>
   <div class="topnav">
     <router-link to="/" class="logo">
-      <svg class="icon">
-        <use xlink:href="#icon-wi-lunar-eclipse"></use>
-      </svg>
+      <img src="../assets/logo.png" alt="首页" />
     </router-link>
     <ul class="menu">
       <li>
         <router-link to="/document">
-          <svg class="icon">
-            <use xlink:href="#icon-book"></use>
-          </svg>
+          <img src="../assets/document.png" alt="文档" />
         </router-link>
       </li>
     </ul>
@@ -42,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #008ada;
+$color: #fe9acf;
 .topnav {
   color: $color;
   display: flex;
@@ -50,8 +46,8 @@ $color: #008ada;
     180deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(255, 255, 255, 1) 97%,
-    rgba(67, 127, 246, 1) 97%,
-    rgba(67, 127, 246, 1) 100%
+    #ffb5dc 97%,
+    #ffb5dc 100%
   );
   padding: 0 32px;
   position: fixed;
@@ -68,6 +64,9 @@ $color: #008ada;
       width: 80px;
       height: 80px;
     }
+    > img {
+      height: 80px;
+    }
   }
   > .menu {
     display: flex;
@@ -75,9 +74,14 @@ $color: #008ada;
     flex-wrap: nowrap;
     > li {
       margin: 0 1em;
-      > a > svg {
-        width: 32px;
-        height: 32px;
+      > a {
+        > svg {
+          width: 32px;
+          height: 32px;
+        }
+        > img {
+          height: 80px;
+        }
       }
     }
   }

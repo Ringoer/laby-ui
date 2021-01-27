@@ -1,6 +1,6 @@
 <template>
   <div>安装</div>
 </template>
-<script>
+<script lang="ts">
 export default {};
 </script>

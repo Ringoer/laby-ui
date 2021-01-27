@@ -1,8 +1,10 @@
 <template>
   <button
     @click="toggle"
+    class="laby-swicth"
     :class="{ active: value }"
     :size="size"
+    :style="{ '--color': color }"
     :disabled="disabled"
   >
     <div></div>
@@ -19,6 +21,10 @@ export default {
       type: String,
       default: "middle",
     },
+    color: {
+      type: String,
+      default: "#109cec",
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -32,20 +38,18 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @mixin layout($r, $d) {
   $r2: $r - $d;
   display: block;
   position: relative;
   border: none;
-  background: rgb(173, 173, 173);
+  background: #adadad;
   outline: none;
   transition: background-color 250ms;
+  cursor: pointer;
   :focus {
     outline: none;
-  }
-  :hover {
-    cursor: pointer;
   }
   > div {
     position: absolute;
@@ -61,7 +65,7 @@ export default {
   width: $r * 2;
   border-radius: $r / 2;
   &.active {
-    background: rgb(16, 156, 236);
+    background: var(--color);
     > div {
       left: calc(100% - #{$r2} - #{$d/2});
     }
@@ -69,17 +73,16 @@ export default {
 }
 $r: 20px;
 $d: 4px;
-button[size="small"] {
+.laby-swicth[size="small"] {
   @include layout($r, $d);
 }
-button[size="middle"] {
+.laby-swicth[size="middle"] {
   @include layout($r * 1.5, $d * 1.5);
 }
-button[size="large"] {
+.laby-swicth[size="large"] {
   @include layout($r * 2, $d * 2);
 }
-button[disabled] {
-  pointer-events: none;
+.laby-swicth[disabled] {
   cursor: not-allowed;
 }
 </style>

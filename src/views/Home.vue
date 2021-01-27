@@ -1,40 +1,46 @@
 <template>
   <div>
-    <div class="topnavAndBanner">
-      <Topnav />
+    <Topnav />
+    <div>
       <div class="banner">
-        <h1>Noah UI</h1>
+        <h1>Laby UI</h1>
         <h2>Ringoer 的练习用 UI 框架</h2>
         <p class="actions">
-          <a href="https://github.com/Ringoer">GitHub</a>
-          <router-link to="/document">开始</router-link>
+          <a href="https://github.com/Ringoer/laby-ui">
+            <img src="../assets/github.png" alt="Github" />
+            Github
+          </a>
+          <router-link to="/document">
+            <img src="../assets/goto.png" alt="开始" />
+            开始
+          </router-link>
         </p>
       </div>
-    </div>
-    <div class="features">
-      <ul>
-        <li>
-          <svg>
-            <use xlink:href="#icon-Vue"></use>
-          </svg>
-          <h3>基于 Vue 3</h3>
-          <p>使用了 Vue 3 全新特性</p>
-        </li>
-        <li>
-          <svg>
-            <use xlink:href="#icon-ts"></use>
-          </svg>
-          <h3>基于 TypeScript</h3>
-          <p>源代码采用 TypeScript 书写</p>
-        </li>
-        <li>
-          <svg>
-            <use xlink:href="#icon-cloud"></use>
-          </svg>
-          <h3>具有亲和力的代码</h3>
-          <p>新手也能轻松阅读的源代码</p>
-        </li>
-      </ul>
+      <div class="features">
+        <ul>
+          <li>
+            <svg>
+              <use xlink:href="#icon-Vue"></use>
+            </svg>
+            <h3>基于 Vue 3</h3>
+            <p>使用了 Vue 3 全新特性</p>
+          </li>
+          <li>
+            <svg>
+              <use xlink:href="#icon-ts"></use>
+            </svg>
+            <h3>基于 TypeScript</h3>
+            <p>源代码采用 TypeScript 书写</p>
+          </li>
+          <li>
+            <svg>
+              <use xlink:href="#icon-cloud"></use>
+            </svg>
+            <h3>具有亲和力的代码</h3>
+            <p>新手也能轻松阅读的源代码</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -51,12 +57,14 @@ export default {
 <style lang="scss" scoped>
 $green: #3593ff;
 $border-radius: 4px;
-$color: #ffffff;
-.topnavAndBanner {
+$color: white;
+.banner {
   background: linear-gradient(
     145deg,
-    rgb(187, 214, 255) 0%,
-    rgb(0, 48, 136) 100%
+    rgb(254, 242, 246) 0%,
+    rgb(253, 192, 202) 30%,
+    rgb(255, 118, 141) 70%,
+    rgb(245, 73, 118) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
 }
@@ -115,7 +123,8 @@ $color: #ffffff;
 }
 .banner {
   color: $color;
-  padding: 100px 0;
+  padding-top: 120px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,14 +136,17 @@ $color: #ffffff;
     padding: 8px 0;
     a {
       margin: 0 8px;
-      background: $green;
-      color: white;
       display: inline-block;
       padding: 8px 24px;
       border-radius: $border-radius;
       &:hover {
         text-decoration: none;
       }
+      > img {
+        display: block;
+        width: 80px;
+      }
+      text-align: center;
     }
   }
 }
