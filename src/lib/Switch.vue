@@ -23,7 +23,7 @@ export default {
     },
     color: {
       type: String,
-      default: "#109cec",
+      default: "#fe9acf",
     },
     disabled: {
       type: Boolean,
