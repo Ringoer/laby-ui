@@ -19,11 +19,14 @@
       <span> 内容 </span>
     </template>
   </laby-dialog>
+  <hr />
+  <laby-button @click="showDialog">一行代码打开对话框</laby-button>
 </template>
 <script lang="ts">
 import { ref } from "vue";
 import LabyButton from "../lib/Button.vue";
 import LabyDialog from "../lib/Dialog.vue";
+import { createDialog } from "../lib/createDialog";
 export default {
   components: {
     LabyButton,
@@ -46,7 +49,20 @@ export default {
       console.log("preventCancel");
       return false;
     };
-    return { visible, ok, cancel, preventCancel };
+    const showDialog = () => {
+      createDialog({
+        title: "一行打开",
+        content: "我是一行代码打开的对话框",
+        ok: () => {
+          console.log("一行打开");
+          return true;
+        },
+        cancel: () => {
+          console.log("一行打开");
+        },
+      });
+    };
+    return { visible, ok, cancel, preventCancel, showDialog };
   },
 };
 </script>
