@@ -7,7 +7,7 @@
     :disabled="disabled"
     :loading="loading"
   >
-    <span class="laby-loadingIndicator" v-if="loading"></span>
+    <span class="laby-button-loadingIndicator" v-if="loading"></span>
     <slot></slot>
   </button>
 </template>
@@ -26,10 +26,6 @@ export default {
       type: String,
       default: "middle",
     },
-    color: {
-      type: String,
-      default: "#fe9acf",
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -45,6 +41,7 @@ export default {
 };
 </script>
 <style lang="scss">
+$theme-color: #f3678e;
 $h: 32px;
 
 @keyframes laby-spin {
@@ -56,6 +53,9 @@ $h: 32px;
   }
 }
 .laby-button {
+  padding: 10px 16px;
+  color: white;
+  border-radius: 8px;
   border: none;
   font-size: 16px;
   cursor: pointer;
@@ -69,7 +69,7 @@ $h: 32px;
   &[disabled] {
     cursor: not-allowed;
   }
-  > .laby-loadingIndicator {
+  > .laby-button-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -81,11 +81,13 @@ $h: 32px;
   }
 }
 
-@mixin layout($loading-color, $base-color, $hover-color, $active-color) {
-  padding: 10px 16px;
+@mixin layout($color) {
+  $loading-color: $color;
+  $base-color: fade-out($color, 0.2);
+  $hover-color: $color;
+  $active-color: fade-out($color, 0.4);
+
   background: $base-color;
-  color: white;
-  border-radius: 8px;
 
   &:hover {
     background: $hover-color;
@@ -93,7 +95,7 @@ $h: 32px;
   &:active {
     background: $active-color;
   }
-  > .laby-loadingIndicator {
+  > .laby-button-loadingIndicator {
     border-color: $loading-color $loading-color $loading-color transparent;
   }
   &[loading="true"],
@@ -102,27 +104,24 @@ $h: 32px;
   }
 }
 .laby-button[theme="button"] {
-  $loading-color: #bb1745;
-  $base-color: #f3678e;
-  $hover-color: #fd3f75;
-  $active-color: #fa81a4;
+  $color: #f04172;
 
-  @include layout($loading-color, $base-color, $hover-color, $active-color);
+  @include layout($color);
 }
 .laby-button:not([theme="button"]) {
   padding: 0;
   background: white;
   color: black;
   &:hover {
-    color: #f3678e;
+    color: $theme-color;
   }
 }
 .laby-button[theme="link"] {
   text-decoration: underline;
 }
 .laby-button[level="plain"] {
-  $base-color: #f3678e;
-  @include layout(white, white, white, white);
+  $base-color: $theme-color;
+  @include layout(white);
   color: black;
   border: 1px solid rgb(187, 187, 187);
   &:hover {
@@ -131,44 +130,29 @@ $h: 32px;
   }
 }
 .laby-button[level="primary"] {
-  $loading-color: #29adfa;
-  $base-color: #52befd;
-  $hover-color: #3db3f8;
-  $active-color: #66c7ff;
+  $color: #29adfa;
 
-  @include layout($loading-color, $base-color, $hover-color, $active-color);
+  @include layout($color);
 }
 .laby-button[level="success"] {
-  $loading-color: rgb(76, 187, 20);
-  $base-color: rgb(117, 206, 72);
-  $hover-color: rgb(95, 194, 46);
-  $active-color: rgb(131, 202, 96);
+  $color: rgb(76, 187, 20);
 
-  @include layout($loading-color, $base-color, $hover-color, $active-color);
+  @include layout($color);
 }
 .laby-button[level="info"] {
-  $loading-color: #808080;
-  $base-color: #a7a7a7;
-  $hover-color: #868585;
-  $active-color: #bbbbbb;
+  $color: #808080;
 
-  @include layout($loading-color, $base-color, $hover-color, $active-color);
+  @include layout($color);
 }
 .laby-button[level="warning"] {
-  $loading-color: #b6a50a;
-  $base-color: #d4c327;
-  $hover-color: #e6d118;
-  $active-color: #e2d34d;
+  $color: #d1ce00;
 
-  @include layout($loading-color, $base-color, $hover-color, $active-color);
+  @include layout($color);
 }
 .laby-button[level="danger"] {
-  $loading-color: #c92e12;
-  $base-color: #f0553a;
-  $hover-color: #ff330f;
-  $active-color: #fa7963;
+  $color: #c91212;
 
-  @include layout($loading-color, $base-color, $hover-color, $active-color);
+  @include layout($color);
 }
 .laby-button[size="large"] {
   padding: 14px 24px;
