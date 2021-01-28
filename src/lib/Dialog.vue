@@ -7,9 +7,11 @@
           <slot name="title"></slot>
           <span class="laby-dialog-close" @click="close"></span>
         </header>
+        <div class="laby-dialog-hr" />
         <main class="laby-dialog-main">
           <slot name="content"></slot>
         </main>
+        <div class="laby-dialog-hr" />
         <footer class="laby-dialog-footer">
           <laby-button level="plain" @click="close">取消</laby-button>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -97,16 +99,13 @@ export default {
   > * {
     padding: 8px;
   }
+  > .laby-dialog-hr {
+    border: 1px solid #ffb5dc;
+    padding: 0;
+  }
   > .laby-dialog-header {
     display: flex;
     justify-content: space-between;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 1) 95%,
-      #ffb5dc 95%,
-      #ffb5dc 100%
-    );
     > .laby-dialog-close {
       position: relative;
       display: inline-block;
@@ -136,13 +135,6 @@ export default {
     background: white;
   }
   > .laby-dialog-footer {
-    background: linear-gradient(
-      180deg,
-      #ffb5dc 0%,
-      #ffb5dc 5%,
-      rgba(255, 255, 255, 1) 5%,
-      rgba(255, 255, 255, 1) 100%
-    );
     display: flex;
     justify-content: flex-end;
   }

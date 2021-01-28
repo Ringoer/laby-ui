@@ -1,8 +1,5 @@
 import { createApp, h } from 'vue'
 import LabyDialog from './Dialog.vue'
-
-
-
 export const createDialog = options => {
   const { title, content, ok, cancel } = options
   const div = document.createElement('div')
