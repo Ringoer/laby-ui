@@ -102,10 +102,10 @@ $h: 32px;
   }
 }
 .laby-button[theme="button"] {
-  $loading-color: #fa3ba1;
-  $base-color: #fd73bd;
-  $hover-color: #ff5eb4;
-  $active-color: #f79fce;
+  $loading-color: #bb1745;
+  $base-color: #f3678e;
+  $hover-color: #fd3f75;
+  $active-color: #fa81a4;
 
   @include layout($loading-color, $base-color, $hover-color, $active-color);
 }
@@ -114,14 +114,14 @@ $h: 32px;
   background: white;
   color: black;
   &:hover {
-    color: #fd73bd;
+    color: #f3678e;
   }
 }
 .laby-button[theme="link"] {
   text-decoration: underline;
 }
 .laby-button[level="plain"] {
-  $base-color: #fd73bd;
+  $base-color: #f3678e;
   @include layout(white, white, white, white);
   color: black;
   border: 1px solid rgb(187, 187, 187);

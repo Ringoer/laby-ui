@@ -7,7 +7,11 @@
         <h2>Ringoer 的练习用 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/Ringoer/laby-ui">
-            <img src="../assets/github.png" alt="Github" />
+            <img
+              src="../assets/github.png"
+              alt="Github"
+              style="transform: rotateY(180deg)"
+            />
             Github
           </a>
           <router-link to="/document">
@@ -62,9 +66,9 @@ $color: white;
   background: linear-gradient(
     145deg,
     rgb(254, 242, 246) 0%,
-    rgb(253, 192, 202) 30%,
-    rgb(255, 118, 141) 70%,
-    rgb(245, 73, 118) 100%
+    rgb(250, 192, 202) 30%,
+    rgb(240, 115, 138) 70%,
+    rgb(243, 103, 142) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
 }

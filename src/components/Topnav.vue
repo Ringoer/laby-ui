@@ -107,4 +107,7 @@ $color: #fe9acf;
     }
   }
 }
+img {
+  padding: 6px 0;
+}
 </style>
