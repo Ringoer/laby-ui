@@ -84,7 +84,7 @@ export default {
   height: 100vh;
 }
 .laby-dialog {
-  z-index: 21;
+  z-index: 20;
   position: fixed;
   left: 50%;
   top: 50%;

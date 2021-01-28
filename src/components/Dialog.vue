@@ -1,7 +1,17 @@
 <template>
   <div>Dialog Doc</div>
-  <laby-button @click="visible = true">打开对话框</laby-button>
-  <laby-dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
+  <laby-button @click="visible[0] = true">普通对话框</laby-button>
+  <laby-dialog v-model:visible="visible[0]" :ok="ok" :cancel="cancel">
+    <template v-slot:title>
+      <strong> 标题 </strong>
+    </template>
+    <template v-slot:content>
+      <span> 内容 </span>
+    </template>
+  </laby-dialog>
+  <hr />
+  <laby-button @click="visible[1] = true">禁止取消对话框</laby-button>
+  <laby-dialog v-model:visible="visible[1]" :ok="ok" :cancel="preventCancel">
     <template v-slot:title>
       <strong> 标题 </strong>
     </template>
@@ -20,19 +30,23 @@ export default {
     LabyDialog,
   },
   setup() {
-    const visible = ref(false);
+    const visible = ref([false, false]);
     const ok = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          console.log("success");
+          console.log("ok");
           resolve(true);
         }, 1000);
       });
     };
     const cancel = () => {
-      console.log("failed");
+      console.log("cancel");
     };
-    return { visible, ok, cancel };
+    const preventCancel = () => {
+      console.log("preventCancel");
+      return false;
+    };
+    return { visible, ok, cancel, preventCancel };
   },
 };
 </script>
