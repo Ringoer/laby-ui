@@ -28,8 +28,17 @@ export default {
       type: Boolean,
       default: false,
     },
-    success: {
+    ok: {
       type: Function,
+      default: () => {
+        return true;
+      },
+    },
+    cancel: {
+      type: Function,
+      default: () => {
+        return true;
+      },
     },
   },
   components: {
@@ -38,16 +47,26 @@ export default {
   setup(props, context) {
     const loading = ref(false);
     const close = () => {
-      context.emit("update:visible", false);
+      if (loading.value) {
+        return;
+      }
+      new Promise((resolve, reject) => {
+        resolve(props?.cancel());
+      }).then((result) => {
+        if (result !== false) {
+          context.emit("update:visible", false);
+        }
+      });
     };
     const task = () => {
       new Promise((resolve, reject) => {
         loading.value = true;
-        resolve(props?.success());
+        resolve(props?.ok());
       }).then((result) => {
-        console.log(result);
-        loading.value = false;
-        close();
+        if (result === true) {
+          loading.value = false;
+          context.emit("update:visible", false);
+        }
       });
     };
     return { loading, close, task };

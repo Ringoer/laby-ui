@@ -1,7 +1,7 @@
 <template>
   <div>Dialog Doc</div>
   <laby-button @click="visible = true">打开对话框</laby-button>
-  <laby-dialog v-model:visible="visible" :success="success">
+  <laby-dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
     <template v-slot:title>
       <strong> 标题 </strong>
     </template>
@@ -21,7 +21,7 @@ export default {
   },
   setup() {
     const visible = ref(false);
-    const success = () => {
+    const ok = () => {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           console.log("success");
@@ -29,13 +29,11 @@ export default {
         }, 1000);
       });
     };
-    const fail = () => {
+    const cancel = () => {
       console.log("failed");
+      // return true;
     };
-    const close = () => {
-      visible.value = false;
-    };
-    return { visible, success, fail, close };
+    return { visible, ok, cancel };
   },
 };
 </script>
