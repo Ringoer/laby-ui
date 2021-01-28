@@ -1,6 +1,6 @@
 <template>
   <template v-if="visible">
-    <div>
+    <teleport to="body">
       <div class="laby-dialog-overlay" @click="close"></div>
       <div class="laby-dialog">
         <header class="laby-dialog-header">
@@ -16,7 +16,7 @@
           <laby-button @click="task" :loading="loading">确定</laby-button>
         </footer>
       </div>
-    </div>
+    </teleport>
   </template>
 </template>
 <script lang="ts">

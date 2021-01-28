@@ -31,7 +31,6 @@ export default {
     };
     const cancel = () => {
       console.log("failed");
-      // return true;
     };
     return { visible, ok, cancel };
   },
