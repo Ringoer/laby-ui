@@ -87,7 +87,7 @@ $active-color: linear-gradient(
     flex-grow: 1;
     padding: 16px;
     background: white;
-    border: 1px solid red;
+    // border: 1px solid red;
     margin-top: 4px;
     margin-right: 10px;
     @media (max-width: 500px) {
