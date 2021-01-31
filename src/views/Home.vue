@@ -59,15 +59,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$green: #3593ff;
+$theme-color: #fe9acf;
 $border-radius: 4px;
 $color: white;
 .banner {
   background: linear-gradient(
     145deg,
     rgb(254, 242, 246) 0%,
-    rgb(250, 192, 202) 30%,
-    rgb(240, 115, 138) 70%,
+    rgb(252, 208, 215) 30%,
+    rgb(243, 140, 159) 70%,
     rgb(243, 103, 142) 100%
   );
   clip-path: ellipse(80% 60% at 50% 40%);
@@ -103,7 +103,7 @@ $color: white;
     > li {
       margin: 16px 0;
       display: grid;
-      justify-content: start;
+      justify-content: center;
       align-content: space-between;
       grid-template-areas:
         "icon title"
@@ -142,7 +142,6 @@ $color: white;
       margin: 0 8px;
       display: inline-block;
       padding: 8px 24px;
-      border-radius: $border-radius;
       &:hover {
         text-decoration: none;
       }

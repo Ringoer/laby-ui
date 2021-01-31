@@ -1,6 +1,13 @@
 <template>
-  <div>安装</div>
+  <article v-html="md"></article>
 </template>
-<script lang="ts">
-export default {};
+<script>
+import { ref } from "vue";
+export default {
+  setup() {
+    const md = ref(null);
+    import("../markdown/install.md").then((res) => (md.value = res.default));
+    return { md };
+  },
+};
 </script>
