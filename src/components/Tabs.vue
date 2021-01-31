@@ -49,5 +49,6 @@ export default {
 .tabs-wrapper {
   border: 1px solid grey;
   padding: 8px;
+  border-radius: 8px;
 }
 </style>

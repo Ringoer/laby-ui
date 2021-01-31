@@ -1,6 +1,11 @@
 <template>
-  <div>介绍</div>
+  <article v-html="md"></article>
 </template>
-<script lang="ts">
-export default {};
+<script>
+import md from "../markdown/introduction.md";
+export default {
+  setup() {
+    return { md };
+  },
+};
 </script>

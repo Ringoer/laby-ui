@@ -24,7 +24,7 @@
       </button>
       <div class="laby-tabs-indicator" ref="indicator"></div>
     </div>
-    <hr />
+    <div class="laby-tabs-divider"></div>
     <div class="laby-tabs-content">
       <component :is="content" :key="selected" />
     </div>
@@ -87,7 +87,7 @@ export default {
         () => {
           if (props.direction === "row") {
             const { height } = selectedItem.value.getBoundingClientRect();
-            indicator.value.style.top = height - 1 + "px";
+            indicator.value.style.top = height + "px";
             const { width } = selectedItem.value.getBoundingClientRect();
             indicator.value.style.width = width + "px";
             const left1 = container.value.getBoundingClientRect().left;
@@ -98,7 +98,7 @@ export default {
             const { height } = selectedItem.value.getBoundingClientRect();
             indicator.value.style.height = height + "px";
             const { width } = selectedItem.value.getBoundingClientRect();
-            indicator.value.style.left = width - 1 + "px";
+            indicator.value.style.left = width + "px";
             const top1 = container.value.getBoundingClientRect().top;
             const top2 = selectedItem.value.getBoundingClientRect().top;
             const top = top2 - top1;
@@ -155,11 +155,20 @@ $theme-color: var(--color);
     transition: all 250ms;
     border: 1px solid $theme-color;
   }
+  &-divider {
+    border: 1px solid rgb(184, 184, 184);
+  }
+  &-content {
+    padding: 8px 4px;
+  }
 }
 .laby-tabs[direction="column"] {
   flex-direction: row;
   > .laby-tabs-titles {
     flex-direction: column;
+  }
+  > .laby-tabs-content {
+    padding: 2px 10px;
   }
 }
 </style>
