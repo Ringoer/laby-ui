@@ -24,7 +24,7 @@
           </li>
         </ol>
       </aside>
-      <main>
+      <main class="markdown-body">
         <router-view />
       </main>
     </div>

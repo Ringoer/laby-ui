@@ -53,7 +53,7 @@ export default {
         return;
       }
       new Promise((resolve, reject) => {
-        resolve(props.cancel?.());
+        resolve(props.cancel());
       }).then((result) => {
         if (result !== false) {
           context.emit("update:visible", false);
@@ -63,7 +63,7 @@ export default {
     const task = () => {
       new Promise((resolve, reject) => {
         loading.value = true;
-        resolve(props.ok?.());
+        resolve(props.ok());
       }).then((result) => {
         if (result === true) {
           loading.value = false;
