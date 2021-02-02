@@ -7,11 +7,11 @@
           <slot name="title"></slot>
           <span class="laby-dialog-close" @click="close"></span>
         </header>
-        <div class="laby-dialog-hr" />
+        <div class="laby-dialog-divider" />
         <main class="laby-dialog-main">
           <slot name="content"></slot>
         </main>
-        <div class="laby-dialog-hr" />
+        <div class="laby-dialog-divider" />
         <footer class="laby-dialog-footer">
           <laby-button level="plain" @click="close">取消</laby-button>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -99,7 +99,7 @@ export default {
   > * {
     padding: 8px;
   }
-  > .laby-dialog-hr {
+  > .laby-dialog-divider {
     border: 1px solid #ffb5dc;
     padding: 0;
   }

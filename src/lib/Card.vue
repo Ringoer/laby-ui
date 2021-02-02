@@ -1,14 +1,26 @@
 <template>
-  <div class="laby-card">
+  <div class="laby-card" :style="{ '--color': color }">
     <slot></slot>
   </div>
 </template>
 <script lang="ts">
-export default {};
+export default {
+  props: {
+    color: {
+      type: String,
+      default: "#fe9acf",
+    },
+  },
+  setup(props, context) {
+    console.log({ ...context.slots.default() });
+  },
+};
 </script>
 <style lang="scss">
 .laby-card {
-  border: 1px solid black;
-  box-shadow: 0 0 3px #bbb;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 0px var(--color);
+  padding: 12px;
+  background: white;
 }
 </style>

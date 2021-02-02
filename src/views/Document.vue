@@ -42,7 +42,7 @@ export default {
         { path: "install", title: "安装" },
         { path: "start", title: "快速上手" },
       ],
-      components: ["Switch", "Button", "Dialog", "Tabs", "Card"],
+      components: ["Button", "Card", "Dialog", "Switch", "Tabs"],
     };
   },
   components: {

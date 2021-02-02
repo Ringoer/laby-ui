@@ -6,4 +6,4 @@ LABY UI，是一个基于 Vue3 和 TypeScript 的 UI 框架
 
 命名来源：[艾尔之光 - 娜薇](https://www.elwiki.net/w/Laby/zh-hans)
 
-![Radiant Soul](/src/assets/index.png)
+![Radiant Soul](https://ali.ringoer.com/png/laby-ui-introduction.png)
