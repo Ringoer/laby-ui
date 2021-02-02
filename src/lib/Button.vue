@@ -4,9 +4,11 @@
     :theme="theme"
     :level="level"
     :size="size"
+    :style="{ '--color': color }"
     :disabled="disabled"
     :loading="loading"
   >
+    <div class="laby-button-mask"></div>
     <span class="laby-button-loadingIndicator" v-if="loading"></span>
     <slot></slot>
   </button>
@@ -26,6 +28,10 @@ export default {
       type: String,
       default: "middle",
     },
+    color: {
+      type: String,
+      default: "#f3678e",
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -41,8 +47,11 @@ export default {
 };
 </script>
 <style lang="scss">
-$theme-color: #f3678e;
+$theme-color: var(--color);
+$base-mask: fade-out(#fff, 0.7);
+$active-mask: fade-out(#fff, 0.5);
 $h: 32px;
+$radius: 8px;
 
 @keyframes laby-spin {
   0% {
@@ -53,9 +62,11 @@ $h: 32px;
   }
 }
 .laby-button {
+  position: relative;
+  display: inline-block;
   padding: 10px 16px;
   color: white;
-  border-radius: 8px;
+  border-radius: $radius;
   border: none;
   font-size: 16px;
   cursor: pointer;
@@ -65,9 +76,24 @@ $h: 32px;
   :focus {
     outline: none;
   }
+  > .laby-button-mask {
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: $radius;
+    &:hover {
+      background: $base-mask;
+    }
+  }
   &[loading="true"],
   &[disabled] {
     cursor: not-allowed;
+    > .laby-button-mask {
+      pointer-events: none;
+    }
   }
   > .laby-button-loadingIndicator {
     width: 14px;
@@ -82,29 +108,27 @@ $h: 32px;
 }
 
 @mixin layout($color) {
-  $loading-color: $color;
-  $base-color: fade-out($color, 0.2);
-  $hover-color: $color;
-  $active-color: fade-out($color, 0.4);
+  $loading-color: fade-out(black, 0.7);
 
-  background: $base-color;
+  background: $color;
 
-  &:hover {
-    background: $hover-color;
-  }
   &:active {
-    background: $active-color;
+    > .laby-button-mask {
+      background: $active-mask;
+    }
   }
   > .laby-button-loadingIndicator {
     border-color: $loading-color $loading-color $loading-color transparent;
   }
   &[loading="true"],
   &[disabled] {
-    background: $active-color;
+    > .laby-button-mask {
+      background: $base-mask;
+    }
   }
 }
 .laby-button[theme="button"] {
-  $color: #f04172;
+  $color: $theme-color;
 
   @include layout($color);
 }

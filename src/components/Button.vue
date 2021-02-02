@@ -16,6 +16,8 @@
     <laby-button>中号按钮</laby-button>
     <laby-button size="small">小号按钮</laby-button>
     <hr />
+    <laby-button color="blue">换色按钮</laby-button>
+    <hr />
     <laby-button disabled>禁用按钮</laby-button>
     <hr />
     <laby-button loading>加载中</laby-button>
