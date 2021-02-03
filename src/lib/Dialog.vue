@@ -4,12 +4,12 @@
       <div class="laby-dialog-overlay" @click="close"></div>
       <div class="laby-dialog">
         <header class="laby-dialog-header">
-          <slot name="title"></slot>
+          {{ title }}
           <span class="laby-dialog-close" @click="close"></span>
         </header>
         <div class="laby-dialog-divider" />
         <main class="laby-dialog-main">
-          <slot name="content"></slot>
+          <slot></slot>
         </main>
         <div class="laby-dialog-divider" />
         <footer class="laby-dialog-footer">
@@ -29,6 +29,10 @@ export default {
     visible: {
       type: Boolean,
       default: false,
+    },
+    title: {
+      type: String,
+      required: true,
     },
     ok: {
       type: Function,

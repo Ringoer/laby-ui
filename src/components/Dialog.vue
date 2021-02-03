@@ -1,23 +1,23 @@
 <template>
   <div>Dialog Doc</div>
   <laby-button @click="visible[0] = true">普通对话框</laby-button>
-  <laby-dialog v-model:visible="visible[0]" :ok="ok" :cancel="cancel">
-    <template v-slot:title>
-      <strong> 标题 </strong>
-    </template>
-    <template v-slot:content>
-      <span> 内容 </span>
-    </template>
+  <laby-dialog
+    v-model:visible="visible[0]"
+    title="标题"
+    :ok="ok"
+    :cancel="cancel"
+  >
+    <span> 内容 </span>
   </laby-dialog>
   <hr />
   <laby-button @click="visible[1] = true">禁止取消对话框</laby-button>
-  <laby-dialog v-model:visible="visible[1]" :ok="ok" :cancel="preventCancel">
-    <template v-slot:title>
-      <strong> 标题 </strong>
-    </template>
-    <template v-slot:content>
-      <span> 内容 </span>
-    </template>
+  <laby-dialog
+    v-model:visible="visible[1]"
+    title="标题"
+    :ok="ok"
+    :cancel="preventCancel"
+  >
+    <span> 内容 </span>
   </laby-dialog>
   <hr />
   <laby-button @click="showDialog">一行代码打开对话框</laby-button>
