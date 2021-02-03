@@ -17,8 +17,9 @@ export const createDialog = options => {
             close();
           }
         },
+        title,
         ok, cancel
-      }, { title() { return title }, content() { return content } })
+      }, { default() { return content } })
     }
   })
   app.mount(div)

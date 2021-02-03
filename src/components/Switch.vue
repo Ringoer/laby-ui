@@ -1,29 +1,102 @@
 <template>
-  <div>Swicth Doc</div>
-  <h2>通常</h2>
-  <laby-switch v-model:value="isActive[0]" />
-  <hr />
-  <span>小号</span>
-  <laby-switch v-model:value="isActive[1]" size="small" />
-  <span>中号</span>
-  <laby-switch v-model:value="isActive[2]" />
-  <span>大号</span>
-  <laby-switch v-model:value="isActive[3]" size="large" />
-  <hr />
-  <h2>换色</h2>
-  <laby-switch v-model:value="isActive[4]" color="blue" />
-  <hr />
-  <h2>禁用</h2>
-  <laby-switch v-model:value="isActive[5]" disabled />
+  <div>
+    <h1>Card 卡片</h1>
+    <div
+      class="container"
+      v-for="({ ...component }, index) in components"
+      :key="index"
+    >
+      <laby-card class="example">
+        <h2>{{ component.__sourceCodeTitle }}</h2>
+        <component :is="component" />
+        <br />
+        <br />
+        <pre
+          v-if="visibility[index]"
+          v-html="
+            Prism.highlight(
+              component.__sourceCode,
+              Prism.languages.html,
+              'html'
+            )
+          "
+        ></pre>
+        <button class="toggle" @click="toggle(index)">
+          <span class="open" v-if="!visibility[index]">
+            ▽
+            <span class="desp">显示代码</span>
+          </span>
+          <span class="close" v-if="visibility[index]">
+            △
+            <span class="desp">隐藏代码</span>
+          </span>
+        </button>
+      </laby-card>
+      <br />
+    </div>
+  </div>
 </template>
 <script lang="ts">
 import { ref } from "vue";
-import LabySwitch from "../lib/Switch.vue";
+import LabyCard from "../lib/Card.vue";
+import "prismjs";
+import "prismjs/themes/prism.css";
+
+const Prism = (window as any).Prism;
+
 export default {
-  components: { LabySwitch },
+  components: {
+    LabyCard,
+  },
   setup() {
-    const isActive = ref([false, false, false, false, false, false]);
-    return { isActive };
+    const paths = [
+      "./examples/Switch/Switch1.example.vue",
+      "./examples/Switch/Switch2.example.vue",
+      "./examples/Switch/Switch3.example.vue",
+      "./examples/Switch/Switch4.example.vue",
+    ];
+    const components = ref(paths.map((item) => ({})));
+    paths.forEach((path, index) => {
+      import(path).then((res) => {
+        components.value[index] = res.default;
+      });
+    });
+    const visibility = ref([false, false]);
+    const toggle = (index) => {
+      visibility.value[index] = !visibility.value[index];
+    };
+    return { Prism, components, visibility, toggle };
   },
 };
 </script>
+<style lang="scss" scoped>
+$theme-color: #f3678e;
+.container {
+  &:hover {
+    > .example > .toggle > * > .desp {
+      display: inline;
+    }
+  }
+  > .example {
+    > .toggle {
+      display: block;
+      width: 100%;
+      height: 32px;
+      border: none;
+      transition: background-color 250ms;
+      outline: none;
+      &:focus {
+        outline: none;
+      }
+      background: white;
+      cursor: pointer;
+      &:hover {
+        background: fade-out($theme-color, 0.9);
+      }
+      > * > .desp {
+        display: none;
+      }
+    }
+  }
+}
+</style>

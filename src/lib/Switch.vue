@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 @mixin layout($r, $d) {
   $r2: $r - $d;
-  display: block;
+  display: inline-block;
   position: relative;
   border: none;
   background: #adadad;

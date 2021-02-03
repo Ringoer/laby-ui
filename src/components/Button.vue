@@ -3,7 +3,7 @@
     <h1>Button 按钮</h1>
     <div
       class="container"
-      v-for="(component, index) in components"
+      v-for="({ ...component }, index) in components"
       :key="index"
     >
       <laby-card class="example">
@@ -41,32 +41,29 @@ import { ref } from "vue";
 import LabyCard from "../lib/Card.vue";
 import "prismjs";
 import "prismjs/themes/prism.css";
-import LabyButton1 from "./examples/Button/Button1.example.vue";
-import LabyButton2 from "./examples/Button/Button2.example.vue";
-import LabyButton3 from "./examples/Button/Button3.example.vue";
-import LabyButton4 from "./examples/Button/Button4.example.vue";
-import LabyButton5 from "./examples/Button/Button5.example.vue";
 
 const Prism = (window as any).Prism;
 
 export default {
   components: {
     LabyCard,
-    LabyButton1,
-    LabyButton2,
-    LabyButton3,
-    LabyButton4,
-    LabyButton5,
   },
   setup() {
-    const components = [
-      LabyButton1,
-      LabyButton2,
-      LabyButton3,
-      LabyButton4,
-      LabyButton5,
+    const paths = [
+      "./examples/Button/Button1.example.vue",
+      "./examples/Button/Button2.example.vue",
+      "./examples/Button/Button3.example.vue",
+      "./examples/Button/Button4.example.vue",
+      "./examples/Button/Button5.example.vue",
+      "./examples/Button/Button6.example.vue",
     ];
-    const visibility = ref([false, false, false, false, false]);
+    const components = ref(paths.map((item) => ({})));
+    paths.forEach((path, index) => {
+      import(path).then((res) => {
+        components.value[index] = res.default;
+      });
+    });
+    const visibility = ref([false, false, false, false, false, false]);
     const toggle = (index) => {
       visibility.value[index] = !visibility.value[index];
     };

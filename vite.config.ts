@@ -7,9 +7,6 @@ import { resolve } from 'path'
 export default {
   base: '/',//指定打包后文件的默认引用路径
   assetsDir: 'assets',
-  alias: {
-    '/@/': resolve(__dirname, 'src')
-  },
   plugins: [md()],
   vueCustomBlockTransforms: {
     example: (options) => {
