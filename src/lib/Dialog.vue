@@ -97,6 +97,7 @@ export default {
   transform: translate(-50%, -50%);
   min-width: 300px;
   min-height: 200px;
+  border-radius: 8px;
   background: white;
   display: flex;
   flex-direction: column;

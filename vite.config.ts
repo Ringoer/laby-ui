@@ -2,16 +2,20 @@
 import { md } from "./plugins/md";
 import fs from 'fs'
 import { baseParse } from '@vue/compiler-core'
+import { resolve } from 'path'
 
 export default {
-  base: './',
+  base: '/',//指定打包后文件的默认引用路径
   assetsDir: 'assets',
+  alias: {
+    '/@/': resolve(__dirname, 'src')
+  },
   plugins: [md()],
   vueCustomBlockTransforms: {
-    demo: (options) => {
+    example: (options) => {
       const { code, path } = options
       const file = fs.readFileSync(path).toString()
-      const parsed = baseParse(file).children.find(n => n.tag === 'demo')
+      const parsed = baseParse(file).children.find(n => n.tag === 'example')
       const title = parsed.children[0].content
       const main = file.split(parsed.loc.source).join('').trim()
       return `export default function (Component) {

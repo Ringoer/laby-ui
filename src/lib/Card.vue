@@ -11,9 +11,6 @@ export default {
       default: "#fe9acf",
     },
   },
-  setup(props, context) {
-    console.log({ ...context.slots.default() });
-  },
 };
 </script>
 <style lang="scss">

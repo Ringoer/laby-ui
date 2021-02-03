@@ -51,7 +51,7 @@ $theme-color: var(--color);
 $base-mask: fade-out(#fff, 0.7);
 $active-mask: fade-out(#fff, 0.5);
 $h: 32px;
-$radius: 8px;
+$radius: 4px;
 
 @keyframes laby-spin {
   0% {
@@ -148,9 +148,12 @@ $radius: 8px;
   @include layout(white);
   color: black;
   border: 1px solid rgb(187, 187, 187);
-  &:hover {
-    border: 1px solid $base-color;
-    color: $base-color;
+
+  &:not([loading="true"]):not([disabled]) {
+    &:hover {
+      border: 1px solid $base-color;
+      color: $base-color;
+    }
   }
 }
 .laby-button[level="primary"] {
@@ -159,7 +162,7 @@ $radius: 8px;
   @include layout($color);
 }
 .laby-button[level="success"] {
-  $color: rgb(76, 187, 20);
+  $color: rgb(103, 194, 58);
 
   @include layout($color);
 }
@@ -169,12 +172,12 @@ $radius: 8px;
   @include layout($color);
 }
 .laby-button[level="warning"] {
-  $color: #d1ce00;
+  $color: rgb(230, 162, 60);
 
   @include layout($color);
 }
 .laby-button[level="danger"] {
-  $color: #c91212;
+  $color: rgb(245, 108, 108);
 
   @include layout($color);
 }
