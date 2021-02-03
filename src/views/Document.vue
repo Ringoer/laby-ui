@@ -25,30 +25,26 @@
         </div>
       </aside>
       <main class="markdown-body">
-        <router-view />
+        <router-view :key="$route.fullPath" />
       </main>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Topnav from "../components/Topnav.vue";
+import { components as globalComponents, guidances } from "../Global";
+import Topnav from "./Topnav.vue";
 import { inject, ref, Ref } from "vue";
 export default {
-  data() {
-    return {
-      guidances: [
-        { path: "introduction", title: "介绍" },
-        { path: "install", title: "安装" },
-        { path: "start", title: "快速上手" },
-      ],
-      components: ["Button", "Card", "Dialog", "Switch", "Tabs"],
-    };
-  },
   components: {
     Topnav,
   },
   setup() {
+    const components = [];
+    for (let key in globalComponents) {
+      components.push(globalComponents[key].name);
+    }
+
     const aside = ref<HTMLDivElement>(null);
     const menuVisible = inject<Ref<boolean>>("menuVisible");
     const hideMenu = (event) => {
@@ -66,6 +62,8 @@ export default {
       }
     };
     return {
+      guidances,
+      components,
       aside,
       menuVisible,
       hideMenu,

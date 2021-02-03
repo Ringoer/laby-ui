@@ -1,14 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router'
+import { components } from './Global'
 import Home from './views/Home.vue'
 import Document from './views/Document.vue'
 import Introduction from './components/guidance/Introduction.vue'
 import Install from './components/guidance/Install.vue'
 import Start from './components/guidance/Start.vue'
-import Switch from './components/Switch.vue'
-import Button from './components/Button.vue'
-import Dialog from './components/Dialog.vue'
-import Tabs from './components/Tabs.vue'
-import Card from './components/Card.vue'
+import Content from './views/Content.vue'
 
 const history = createWebHistory()
 const router = createRouter({
@@ -17,21 +14,17 @@ const router = createRouter({
     { path: '/', component: Home },
     {
       path: '/document', component: Document, children: [
+        { path: '', redirect: '/document/introduction' },
         { path: 'introduction', component: Introduction },
         { path: 'install', component: Install },
         { path: 'start', component: Start },
-        { path: 'switch', component: Switch },
-        { path: 'button', component: Button },
-        { path: 'dialog', component: Dialog },
-        { path: 'tabs', component: Tabs },
-        { path: 'card', component: Card },
+        { path: 'button', component: Content, props: components['button'] },
+        { path: 'card', component: Content, props: components['card'] },
+        { path: 'dialog', component: Content, props: components['dialog'] },
+        { path: 'switch', component: Content, props: components['switch'] },
+        { path: 'tabs', component: Content, props: components['tabs'] },
       ]
     }
   ]
-})
-router.afterEach(to => {
-  if (to.fullPath === '/document') {
-    router.replace(('/document/introduction'))
-  }
 })
 export default router

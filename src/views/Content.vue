@@ -58,7 +58,7 @@ export default {
   },
   setup(props) {
     const templateString: string =
-      "./examples/{name}/{name}{index}.example.vue";
+      "../components/examples/{name}/{name}{index}.example.vue";
     const { name, title, quantity } = props;
     const paths = [];
     for (let i = 1; i <= quantity; i++) {
@@ -69,7 +69,6 @@ export default {
           .replace("{index}", i.toString())
       );
     }
-    console.log(paths);
 
     const components = ref(paths.map((item) => ({})));
     paths.forEach((path: string, index) => {
