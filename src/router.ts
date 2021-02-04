@@ -1,10 +1,11 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import { components } from './Global'
 import Home from './views/Home.vue'
 import Document from './views/Document.vue'
-import Introduction from './components/guidance/Introduction.vue'
-import Install from './components/guidance/Install.vue'
-import Start from './components/guidance/Start.vue'
+import Introduction from './components/guidances/Introduction.vue'
+import Install from './components/guidances/Install.vue'
+import Start from './components/guidances/Start.vue'
+
+import { components } from './Global'
 import Content from './views/Content.vue'
 
 const history = createWebHistory()

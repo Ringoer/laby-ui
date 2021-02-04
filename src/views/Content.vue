@@ -31,12 +31,26 @@
   </div>
 </template>
 <script lang="ts">
+import LabyButtons from "../components/contents/Button";
+import LabyCards from "../components/contents/Card";
+import LabyDialogs from "../components/contents/Dialog";
+import LabySwitchs from "../components/contents/Switch";
+import LabyTabss from "../components/contents/Tabs";
+
 import { ref } from "vue";
 import LabyCard from "../lib/Card.vue";
 import "prismjs";
 import "prismjs/themes/prism.css";
 
 const Prism = (window as any).Prism;
+
+const LabyMap = {
+  Button: LabyButtons,
+  Card: LabyCards,
+  Dialog: LabyDialogs,
+  Switch: LabySwitchs,
+  Tabs: LabyTabss,
+};
 
 export default {
   props: {
@@ -48,36 +62,15 @@ export default {
       type: String,
       required: true,
     },
-    quantity: {
-      type: Number,
-      required: true,
-    },
   },
   components: {
     LabyCard,
   },
   setup(props) {
-    const templateString: string =
-      "../components/examples/{name}/{name}{index}.example.vue";
-    const { name, title, quantity } = props;
-    const paths = [];
-    for (let i = 1; i <= quantity; i++) {
-      paths.push(
-        templateString
-          .replace("{name}", name)
-          .replace("{name}", name)
-          .replace("{index}", i.toString())
-      );
-    }
-    console.log(require(paths[0]));
+    const { name, title } = props;
 
-    const components = ref(paths.map((item) => ({})));
-    paths.forEach((path: string, index) => {
-      import(path).then((res) => {
-        components.value[index] = res.default;
-      });
-    });
-    const visibility = ref(paths.map((item) => false));
+    const components = LabyMap[name];
+    const visibility = ref(components.map((item) => false));
     const toggle = (index) => {
       visibility.value[index] = !visibility.value[index];
     };

@@ -1,18 +1,18 @@
 export const components = {
   'button': {
-    name: 'Button', title: 'Button 按钮', quantity: 6
+    name: 'Button', title: 'Button 按钮'
   },
   'card': {
-    name: 'Card', title: 'Card 卡片', quantity: 2
+    name: 'Card', title: 'Card 卡片'
   },
   'dialog': {
-    name: 'Dialog', title: 'Dialog 对话框', quantity: 3
+    name: 'Dialog', title: 'Dialog 对话框'
   },
   'switch': {
-    name: 'Switch', title: 'Switch 开关', quantity: 4
+    name: 'Switch', title: 'Switch 开关'
   },
   'tabs': {
-    name: 'Tabs', title: 'Tabs 标签页', quantity: 3
+    name: 'Tabs', title: 'Tabs 标签页'
   },
 }
 export const guidances = [
