@@ -69,6 +69,7 @@ export default {
           .replace("{index}", i.toString())
       );
     }
+    console.log(require(paths[0]));
 
     const components = ref(paths.map((item) => ({})));
     paths.forEach((path: string, index) => {
