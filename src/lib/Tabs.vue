@@ -39,6 +39,7 @@ declare const props: {
   color?: String;
 };
 export default {
+  name: "LabyTabs",
   props: {
     direction: {
       type: String,

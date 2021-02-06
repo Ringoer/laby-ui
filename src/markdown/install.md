@@ -5,13 +5,13 @@
 建议优先使用 npm 安装
 
 ```bash
-npm install laby-ui --save
+npm install laby-ui-vue --save
 ```
 
 或
 
 ```bash
-yarn add laby-ui --save
+yarn add laby-ui-vue --save
 ```
 
 ## cdn 引入
@@ -20,7 +20,7 @@ yarn add laby-ui --save
 
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="其实还没发布">
+<link rel="stylesheet" href="https://ali.ringoer.com/cdn/laby-ui-vue/laby.css">
 <!-- 引入组件库 -->
-<script src="其实还没发布"></script>
+<script src="https://ali.ringoer.com/cdn/laby-ui-vue/laby.js"></script>
 ```

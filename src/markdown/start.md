@@ -8,14 +8,12 @@
 
 ```typescript
 import { createApp } from 'vue';
-import LabyUI from 'laby-ui';
-import 'laby-ui/lib/theme-chalk/index.css';
+import LabyUI from 'laby-ui-vue';
+import 'laby-ui-vue/lib/laby.css';
 import App from './App.vue';
 
 const app = createApp(App);
-
 app.use(LabyUI);
-
 app.mount('#app');
 ```
 

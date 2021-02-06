@@ -12,6 +12,7 @@
 </template>
 <script lang="ts">
 export default {
+  name: "LabySwitch",
   props: {
     value: {
       type: Boolean,

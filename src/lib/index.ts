@@ -1,7 +1,18 @@
-export { default as Button } from './Button.vue'
-export { default as Card } from './Card.vue'
-export { default as Dialog } from './Dialog.vue'
+import LabyButton from './Button.vue'
+import LabyCard from './Card.vue'
+import LabyDialog from './Dialog.vue'
+import LabySwitch from './Switch.vue'
+import LabyTab from './Tab.vue'
+import LabyTabs from './Tabs.vue'
+
+export { LabyButton, LabyCard, LabyDialog, LabySwitch, LabyTab, LabyTabs, }
 export { createDialog as createDialog } from './createDialog'
-export { default as Switch } from './Switch.vue'
-export { default as Tab } from './Tab.vue'
-export { default as Tabs } from './Tabs.vue'
+
+export default {
+  install: Vue => {
+    const components = [LabyButton, LabyCard, LabyDialog, LabySwitch, LabyTab, LabyTabs]
+    components.forEach(item => {
+      Vue.component(item.name, item)
+    })
+  }
+}

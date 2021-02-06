@@ -11,15 +11,18 @@ export default {
       vue: 'Vue'
     },
     name: 'Laby',
-    file: 'dist/lib/laby.js',
-    format: 'umd',
-    plugins: [terser()]
-  }, {
-    name: 'Laby',
-    file: 'dist/lib/laby.esm.js',
+    file: 'lib/laby.js',
     format: 'es',
     plugins: [terser()]
-  }],
+  }, {
+    globals: {
+      vue: 'Vue'
+    },
+    name: 'Laby',
+    file: 'lib/laby.umd.js',
+    format: 'umd',
+    plugins: [terser()]
+  },],
   plugins: [
     vue({
       include: /\.vue$/,

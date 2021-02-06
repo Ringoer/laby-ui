@@ -1,10 +1,10 @@
 {
   "name": "laby-ui-vue",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "files": [
-    "dist/lib/*"
+    "lib/*"
   ],
-  "main": "dist/lib/laby.js",
+  "main": "lib/laby.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"

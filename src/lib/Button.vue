@@ -15,6 +15,7 @@
 </template>
 <script lang="ts">
 export default {
+  name: "LabyButton",
   props: {
     theme: {
       type: String,

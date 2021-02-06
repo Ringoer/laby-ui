@@ -25,6 +25,7 @@
 import { ref } from "vue";
 import LabyButton from "./Button.vue";
 export default {
+  name: "LabyDialog",
   props: {
     visible: {
       type: Boolean,

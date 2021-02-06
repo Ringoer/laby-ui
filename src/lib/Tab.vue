@@ -5,6 +5,7 @@
 </template>
 <script lang="ts">
 export default {
+  name: "LabyTab",
   props: {
     title: {
       type: String,
