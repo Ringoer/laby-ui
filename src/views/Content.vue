@@ -17,13 +17,13 @@
         "
       ></pre>
       <button class="toggle" @click="toggle(index)">
-        <span class="open" v-if="!visibility[index]">
-          ▽
-          <span class="desp">显示代码</span>
-        </span>
         <span class="close" v-if="visibility[index]">
           △
           <span class="desp">隐藏代码</span>
+        </span>
+        <span class="open" v-else>
+          ▽
+          <span class="desp">显示代码</span>
         </span>
       </button>
     </laby-card>

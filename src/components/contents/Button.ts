@@ -1,11 +1,3 @@
-const paths = [
-  "../examples/Button/Button1.example.vue",
-  "../examples/Button/Button2.example.vue",
-  "../examples/Button/Button3.example.vue",
-  "../examples/Button/Button4.example.vue",
-  "../examples/Button/Button5.example.vue",
-  "../examples/Button/Button6.example.vue",
-];
 import LabyComponent1 from "../examples/Button/Button1.example.vue";
 import LabyComponent2 from "../examples/Button/Button2.example.vue";
 import LabyComponent3 from "../examples/Button/Button3.example.vue";
