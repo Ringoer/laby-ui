@@ -5,7 +5,7 @@
   <laby-card>一些可能存在的卡片内容</laby-card>
 </template>
 <script lang="ts">
-import LabyCard from "../../../lib/Card.vue";
+import { LabyCard } from "laby-ui-vue";
 export default {
   components: {
     LabyCard,

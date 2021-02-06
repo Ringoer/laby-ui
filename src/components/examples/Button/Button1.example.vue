@@ -11,7 +11,7 @@
   <laby-button level="danger">危险按钮</laby-button>
 </template>
 <script lang="ts">
-import LabyButton from "../../../lib/Button.vue";
+import { LabyButton } from "laby-ui-vue";
 export default {
   components: {
     LabyButton,

@@ -5,8 +5,9 @@
   <laby-switch v-model:value="isActive" />
 </template>
 <script lang="ts">
+import { LabySwitch } from "laby-ui-vue";
+
 import { ref } from "vue";
-import LabySwitch from "../../../lib/Switch.vue";
 export default {
   components: {
     LabySwitch,

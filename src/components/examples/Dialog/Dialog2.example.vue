@@ -13,9 +13,9 @@
   </laby-dialog>
 </template>
 <script lang="ts">
+import { LabyButton, LabyDialog } from "laby-ui-vue";
+
 import { ref } from "vue";
-import LabyButton from "../../../lib/Button.vue";
-import LabyDialog from "../../../lib/Dialog.vue";
 export default {
   components: {
     LabyButton,

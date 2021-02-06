@@ -8,9 +8,9 @@
   </laby-tabs>
 </template>
 <script lang="ts">
+import { LabyTab, LabyTabs } from "laby-ui-vue";
+
 import { ref } from "vue";
-import LabyTab from "../../../lib/Tab.vue";
-import LabyTabs from "../../../lib/Tabs.vue";
 export default {
   components: {
     LabyTab,
