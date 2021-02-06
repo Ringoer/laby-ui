@@ -16,11 +16,11 @@ yarn add laby-ui-vue --save
 
 ## cdn 引入
 
-在页面中引入对应的 CSS 和 JS 文件，即可使用
+本 UI 库只能在页面中引入对应的 CSS 文件
+
+若要在 JS 中使用，请采用 npm 安装方法
 
 ```html
 <!-- 引入样式 -->
 <link rel="stylesheet" href="https://ali.ringoer.com/cdn/laby-ui-vue/laby.css">
-<!-- 引入组件库 -->
-<script src="https://ali.ringoer.com/cdn/laby-ui-vue/laby.js"></script>
 ```
