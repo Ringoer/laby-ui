@@ -5,6 +5,9 @@
 </template>
 <script lang="ts">
 export default {
+  install: function (Vue) {
+    Vue.component(this.name, this);
+  },
   name: "LabyCard",
   props: {
     color: {

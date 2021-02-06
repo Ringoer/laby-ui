@@ -12,6 +12,9 @@
 </template>
 <script lang="ts">
 export default {
+  install: function (Vue) {
+    Vue.component(this.name, this);
+  },
   name: "LabySwitch",
   props: {
     value: {

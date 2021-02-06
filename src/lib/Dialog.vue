@@ -25,6 +25,9 @@
 import { ref } from "vue";
 import LabyButton from "./Button.vue";
 export default {
+  install: function (Vue) {
+    Vue.component(this.name, this);
+  },
   name: "LabyDialog",
   props: {
     visible: {

@@ -39,6 +39,9 @@ declare const props: {
   color?: String;
 };
 export default {
+  install: function (Vue) {
+    Vue.component(this.name, this);
+  },
   name: "LabyTabs",
   props: {
     direction: {
