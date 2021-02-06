@@ -4,9 +4,15 @@
 <script>
 import { ref } from "vue";
 export default {
-  setup() {
+  props: {
+    path: {
+      type: String,
+      required: true,
+    },
+  },
+  setup(props) {
     const md = ref(null);
-    import("../../markdown/introduction.md").then(
+    import(`../markdown/${props.path}.md`).then(
       (res) => (md.value = res.default)
     );
     return { md };

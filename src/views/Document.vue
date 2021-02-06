@@ -6,7 +6,7 @@
         <div class="aside-list">
           <h2>指南</h2>
           <ol>
-            <li v-for="(guidance, index) in guidances" :key="index">
+            <li v-for="(guidance, index) in guidancesList" :key="index">
               <router-link :to="'/document/' + guidance.path">
                 {{ guidance.title }}
               </router-link>
@@ -16,7 +16,7 @@
         <div class="aside-list">
           <h2>组件列表</h2>
           <ol>
-            <li v-for="(component, index) in components" :key="index">
+            <li v-for="(component, index) in componentsList" :key="index">
               <router-link :to="'/document/' + component.toLowerCase()">
                 {{ component }}
               </router-link>
@@ -32,23 +32,16 @@
 </template>
 
 <script lang="ts">
+import { guidances, components } from "../Global";
 import Topnav from "../components/Topnav.vue";
 import { inject, ref, Ref } from "vue";
 export default {
-  data() {
-    return {
-      guidances: [
-        { path: "introduction", title: "介绍" },
-        { path: "install", title: "安装" },
-        { path: "start", title: "快速上手" },
-      ],
-      components: ["Button", "Card", "Dialog", "Switch", "Tabs"],
-    };
-  },
   components: {
     Topnav,
   },
   setup() {
+    const guidancesList = Object.keys(guidances).map((item) => guidances[item]);
+    const componentsList = Object.keys(components);
     const aside = ref<HTMLDivElement>(null);
     const menuVisible = inject<Ref<boolean>>("menuVisible");
     const hideMenu = (event) => {
@@ -66,6 +59,8 @@ export default {
       }
     };
     return {
+      guidancesList,
+      componentsList,
       aside,
       menuVisible,
       hideMenu,

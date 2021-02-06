@@ -5,7 +5,8 @@ import Introduction from './components/guidances/Introduction.vue'
 import Install from './components/guidances/Install.vue'
 import Start from './components/guidances/Start.vue'
 
-import { components } from './Global'
+import { guidances, components } from './Global'
+import Guidance from './views/Guidance.vue'
 import Content from './views/Content.vue'
 
 const history = createWebHistory()
@@ -16,14 +17,14 @@ const router = createRouter({
     {
       path: '/document', component: Document, children: [
         { path: '', redirect: '/document/introduction' },
-        { path: 'introduction', component: Introduction },
-        { path: 'install', component: Install },
-        { path: 'start', component: Start },
-        { path: 'button', component: Content, props: components['button'] },
-        { path: 'card', component: Content, props: components['card'] },
-        { path: 'dialog', component: Content, props: components['dialog'] },
-        { path: 'switch', component: Content, props: components['switch'] },
-        { path: 'tabs', component: Content, props: components['tabs'] },
+        { path: 'introduction', component: Guidance, props: guidances['introduction'] },
+        { path: 'install', component: Guidance, props: guidances['install'] },
+        { path: 'start', component: Guidance, props: guidances['start'] },
+        { path: 'button', component: Content, props: components['Button'] },
+        { path: 'card', component: Content, props: components['Card'] },
+        { path: 'dialog', component: Content, props: components['Dialog'] },
+        { path: 'switch', component: Content, props: components['Switch'] },
+        { path: 'tabs', component: Content, props: components['Tabs'] },
       ]
     }
   ]
