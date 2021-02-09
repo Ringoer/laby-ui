@@ -31,13 +31,16 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, onMounted, ref, watchEffect } from "vue";
+import { computed, onMounted, ref, SetupContext, watchEffect } from "vue";
 import LabyTab from "./Tab.vue";
+
 declare const props: {
   direction?: "row" | "column";
   selected: String;
-  color?: String;
+  color: String;
 };
+declare const context: SetupContext;
+
 export default {
   install: function (Vue) {
     Vue.component(this.name, this);

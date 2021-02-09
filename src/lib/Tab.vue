@@ -4,6 +4,10 @@
   </div>
 </template>
 <script lang="ts">
+declare const props: {
+  title: string;
+};
+
 export default {
   install: function (Vue) {
     Vue.component(this.name, this);

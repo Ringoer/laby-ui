@@ -10,7 +10,16 @@
     <div></div>
   </button>
 </template>
-<script lang="ts">
+<script lang="ts" setup="props,context">
+import { SetupContext } from "vue";
+declare const props: {
+  value: boolean;
+  size?: "middle" | "small" | "large";
+  color: string;
+  disabled: boolean;
+};
+declare const context: SetupContext;
+
 export default {
   install: function (Vue) {
     Vue.component(this.name, this);

@@ -14,6 +14,22 @@
   </button>
 </template>
 <script lang="ts">
+declare const props: {
+  theme?: "button" | "link" | "text";
+  level?:
+    | "default"
+    | "plain"
+    | "primary"
+    | "success"
+    | "info"
+    | "warning"
+    | "danger";
+  size?: "middle" | "small" | "large";
+  color: string;
+  disabled: boolean;
+  loading: boolean;
+};
+
 export default {
   install: function (Vue) {
     Vue.component(this.name, this);
@@ -44,9 +60,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
-  setup(props) {
-    return {};
   },
 };
 </script>

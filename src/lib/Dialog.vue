@@ -22,8 +22,17 @@
   </template>
 </template>
 <script lang="ts">
-import { ref } from "vue";
+import { ref, SetupContext } from "vue";
 import LabyButton from "./Button.vue";
+
+declare const props: {
+  visible: boolean;
+  title: string;
+  ok: () => boolean;
+  cancel: () => boolean;
+};
+declare const context: SetupContext;
+
 export default {
   install: function (Vue) {
     Vue.component(this.name, this);
