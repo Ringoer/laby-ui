@@ -53,6 +53,7 @@ export default {
     },
     selected: {
       type: String,
+      required: true,
     },
     color: {
       type: String,

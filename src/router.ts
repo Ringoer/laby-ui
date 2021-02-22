@@ -20,6 +20,7 @@ const router = createRouter({
         { path: 'card', component: Content, props: components['Card'] },
         { path: 'dialog', component: Content, props: components['Dialog'] },
         { path: 'switch', component: Content, props: components['Switch'] },
+        { path: 'table', component: Content, props: components['Table'] },
         { path: 'tabs', component: Content, props: components['Tabs'] },
       ]
     }

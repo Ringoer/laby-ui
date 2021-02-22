@@ -10,7 +10,7 @@
     <div></div>
   </button>
 </template>
-<script lang="ts" setup="props,context">
+<script lang="ts">
 import { SetupContext } from "vue";
 declare const props: {
   value: boolean;

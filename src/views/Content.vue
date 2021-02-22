@@ -1,5 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
+  <br />
   <div
     class="container"
     v-for="({ ...component }, index) in components"
@@ -7,15 +8,23 @@
   >
     <laby-card class="example">
       <h2>{{ component.__sourceCodeTitle }}</h2>
+      <br />
       <component :is="component" />
       <br />
       <br />
-      <pre
-        v-if="visibility[index]"
-        v-html="
-          Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')
-        "
-      ></pre>
+      <code class="markdown-body">
+        <pre
+          v-if="visibility[index]"
+          v-html="
+            Prism.highlight(
+              component.__sourceCode,
+              Prism.languages.html,
+              'html'
+            )
+          "
+        ></pre>
+      </code>
+
       <button class="toggle" @click="toggle(index)">
         <span class="close" v-if="visibility[index]">
           △
@@ -29,16 +38,30 @@
     </laby-card>
     <br />
   </div>
+  <laby-table bordered>
+    <thead>
+      <tr>
+        <th v-for="(head, index) in heads" :key="index">{{ head.name }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(attribute, index) in attributes" :key="index">
+        <td v-for="key in keys" :key="key" v-html="attribute[key]"></td>
+      </tr>
+    </tbody>
+  </laby-table>
 </template>
 <script lang="ts">
 import LabyButtons from "../components/contents/Button";
 import LabyCards from "../components/contents/Card";
 import LabyDialogs from "../components/contents/Dialog";
 import LabySwitchs from "../components/contents/Switch";
+import LabyTables from "../components/contents/Table";
 import LabyTabss from "../components/contents/Tabs";
 
 import { ref } from "vue";
 import LabyCard from "../lib/Card.vue";
+import LabyTable from "../lib/Table.vue";
 import "prismjs";
 import "prismjs/themes/prism.css";
 
@@ -49,6 +72,7 @@ const LabyMap = {
   Card: LabyCards,
   Dialog: LabyDialogs,
   Switch: LabySwitchs,
+  Table: LabyTables,
   Tabs: LabyTabss,
 };
 
@@ -65,16 +89,34 @@ export default {
   },
   components: {
     LabyCard,
+    LabyTable,
   },
   setup(props) {
     const { name, title } = props;
+    const heads = [
+      { name: "参数", identifier: "attr" },
+      { name: "含义", identifier: "desp" },
+      { name: "类型", identifier: "type" },
+      { name: "可选值", identifier: "values" },
+      { name: "默认值", identifier: "default" },
+    ];
+    const keys = heads.map((item: any) => item.identifier);
 
-    const components = LabyMap[name];
+    const { components, attributes } = LabyMap[name];
     const visibility = ref(components.map((item) => false));
     const toggle = (index) => {
       visibility.value[index] = !visibility.value[index];
     };
-    return { title, Prism, components, visibility, toggle };
+    return {
+      title,
+      Prism,
+      heads,
+      keys,
+      components,
+      attributes,
+      visibility,
+      toggle,
+    };
   },
 };
 </script>
@@ -100,7 +142,7 @@ $theme-color: #f3678e;
       background: white;
       cursor: pointer;
       &:hover {
-        background: fade-out($theme-color, 0.9);
+        background: fade-out($theme-color, 0.95);
       }
       > * > .desp {
         display: none;

@@ -1,50 +1,48 @@
 <template>
   <div>
     <Topnav />
-    <div>
-      <div class="banner">
-        <h1>Laby UI</h1>
-        <h2>Ringoer 的练习用 UI 框架</h2>
-        <p class="actions">
-          <a href="https://github.com/Ringoer/laby-ui">
-            <img
-              src="../assets/github.png"
-              alt="Github"
-              style="transform: rotateY(180deg)"
-            />
-            Github
-          </a>
-          <router-link to="/document">
-            <img src="../assets/goto.png" alt="开始" />
-            开始
-          </router-link>
-        </p>
-      </div>
-      <div class="features">
-        <ul>
-          <li>
-            <svg>
-              <use xlink:href="#icon-Vue"></use>
-            </svg>
-            <h3>基于 Vue 3</h3>
-            <p>使用了 Vue 3 全新特性</p>
-          </li>
-          <li>
-            <svg>
-              <use xlink:href="#icon-ts"></use>
-            </svg>
-            <h3>基于 TypeScript</h3>
-            <p>源代码采用 TypeScript 书写</p>
-          </li>
-          <li>
-            <svg>
-              <use xlink:href="#icon-cloud"></use>
-            </svg>
-            <h3>具有亲和力的代码</h3>
-            <p>新手也能轻松阅读的源代码</p>
-          </li>
-        </ul>
-      </div>
+    <div class="banner">
+      <h1>Laby UI</h1>
+      <h2>Ringoer 的练习用 UI 框架</h2>
+      <p class="actions">
+        <a href="https://github.com/Ringoer/laby-ui">
+          <img
+            src="../assets/github.png"
+            alt="Github"
+            style="transform: rotateY(180deg)"
+          />
+          Github
+        </a>
+        <router-link to="/document">
+          <img src="../assets/goto.png" alt="开始" />
+          开始
+        </router-link>
+      </p>
+    </div>
+    <div class="features">
+      <ul>
+        <li>
+          <svg>
+            <use xlink:href="#icon-Vue"></use>
+          </svg>
+          <h3>基于 Vue 3</h3>
+          <p>使用了 Vue 3 全新特性</p>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="#icon-ts"></use>
+          </svg>
+          <h3>基于 TypeScript</h3>
+          <p>源代码采用 TypeScript 书写</p>
+        </li>
+        <li>
+          <svg>
+            <use xlink:href="#icon-cloud"></use>
+          </svg>
+          <h3>具有亲和力的代码</h3>
+          <p>新手也能轻松阅读的源代码</p>
+        </li>
+      </ul>
     </div>
   </div>
 </template>

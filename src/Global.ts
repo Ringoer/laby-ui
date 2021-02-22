@@ -11,6 +11,9 @@ export const components = {
   'Switch': {
     name: 'Switch', title: 'Switch 开关'
   },
+  'Table': {
+    name: 'Table', title: 'Table 表格'
+  },
   'Tabs': {
     name: 'Tabs', title: 'Tabs 标签页'
   },

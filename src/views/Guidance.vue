@@ -1,5 +1,5 @@
 <template>
-  <article v-html="md"></article>
+  <article class="markdown-body" v-html="md"></article>
 </template>
 <script>
 import { ref } from "vue";

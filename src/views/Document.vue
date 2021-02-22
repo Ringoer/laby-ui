@@ -7,7 +7,7 @@
           <h2>指南</h2>
           <ol>
             <li v-for="(guidance, index) in guidancesList" :key="index">
-              <router-link :to="'/document/' + guidance.path">
+              <router-link :to="guidance.path">
                 {{ guidance.title }}
               </router-link>
             </li>
@@ -17,14 +17,14 @@
           <h2>组件列表</h2>
           <ol>
             <li v-for="(component, index) in componentsList" :key="index">
-              <router-link :to="'/document/' + component.toLowerCase()">
+              <router-link :to="component.toLowerCase()">
                 {{ component }}
               </router-link>
             </li>
           </ol>
         </div>
       </aside>
-      <main class="markdown-body">
+      <main>
         <router-view :key="$route.fullPath" />
       </main>
     </div>
