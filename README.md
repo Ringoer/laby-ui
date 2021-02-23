@@ -5,6 +5,7 @@
 - Button
 - Card
 - Dialog
+- Input
 - Switch
 - Table
 - Tabs
@@ -14,13 +15,13 @@
 推荐使用 npm 安装
 
 ```bash
-npm install laby-ui-vue --save
+npm install laby-ui --save
 ```
 
 或使用 yarn
 
 ```bash
-yarn add laby-ui-vue --save
+yarn add laby-ui --save
 ```
 
 # 技术栈

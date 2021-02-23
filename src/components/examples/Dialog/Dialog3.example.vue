@@ -5,7 +5,7 @@
   <laby-button @click="showDialog">打开对话框</laby-button>
 </template>
 <script lang="ts">
-import { LabyButton, createDialog } from "laby-ui-vue";
+import { LabyButton, createDialog } from "laby-ui";
 
 export default {
   components: {

@@ -9,8 +9,8 @@
 ```typescript
 import { createApp } from 'vue';
 import App from './App.vue';
-import LabyUI from 'laby-ui-vue';
-import 'laby-ui-vue/lib/laby.css';
+import LabyUI from 'laby-ui';
+import 'laby-ui/lib/laby.css';
 
 const app = createApp(App);
 app.use(LabyUI);
@@ -30,8 +30,8 @@ app.mount('#app');
 ```typescript
 import { createApp } from 'vue';
 import App from './App.vue';
-import { LabyButton, LabyCard } from 'laby-ui-vue';
-import 'laby-ui-vue/lib/laby.css';
+import { LabyButton, LabyCard } from 'laby-ui';
+import 'laby-ui/lib/laby.css';
 
 const app = createApp(App);
 

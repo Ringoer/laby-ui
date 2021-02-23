@@ -5,7 +5,7 @@
   <laby-switch v-model:value="isActive" color="blue" />
 </template>
 <script lang="ts">
-import { LabySwitch } from "laby-ui-vue";
+import { LabySwitch } from "laby-ui";
 
 import { ref } from "vue";
 export default {

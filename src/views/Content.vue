@@ -55,6 +55,7 @@
 import LabyButtons from "../components/contents/Button";
 import LabyCards from "../components/contents/Card";
 import LabyDialogs from "../components/contents/Dialog";
+import LabyInputs from "../components/contents/Input";
 import LabySwitchs from "../components/contents/Switch";
 import LabyTables from "../components/contents/Table";
 import LabyTabss from "../components/contents/Tabs";
@@ -71,6 +72,7 @@ const LabyMap = {
   Button: LabyButtons,
   Card: LabyCards,
   Dialog: LabyDialogs,
+  Input: LabyInputs,
   Switch: LabySwitchs,
   Table: LabyTables,
   Tabs: LabyTabss,

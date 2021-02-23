@@ -7,7 +7,7 @@
   <laby-button size="small">小号按钮</laby-button>
 </template>
 <script lang="ts">
-import { LabyButton } from "laby-ui-vue";
+import { LabyButton } from "laby-ui";
 export default {
   components: {
     LabyButton,

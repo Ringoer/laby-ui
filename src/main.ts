@@ -6,7 +6,7 @@ import router from './router'
 import 'github-markdown-css'
 import 'prismjs/themes/prism.css'
 import 'prismjs'
-import 'laby-ui-vue/lib/laby.css'
+import 'laby-ui/lib/laby.css'
 
 const app = createApp(App)
 app.use(router)

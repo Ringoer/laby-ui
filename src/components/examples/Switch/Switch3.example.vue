@@ -12,7 +12,7 @@
   <laby-switch v-model:value="isActive[2]" size="large" />
 </template>
 <script lang="ts">
-import { LabySwitch } from "laby-ui-vue";
+import { LabySwitch } from "laby-ui";
 
 import { ref } from "vue";
 export default {

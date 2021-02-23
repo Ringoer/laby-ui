@@ -8,6 +8,9 @@ export const components = {
   'Dialog': {
     name: 'Dialog', title: 'Dialog 对话框'
   },
+  'Input': {
+    name: 'Input', title: 'Input 输入框'
+  },
   'Switch': {
     name: 'Switch', title: 'Switch 开关'
   },

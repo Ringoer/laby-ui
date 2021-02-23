@@ -8,7 +8,7 @@
   </laby-dialog>
 </template>
 <script lang="ts">
-import { LabyButton, LabyDialog } from "laby-ui-vue";
+import { LabyButton, LabyDialog } from "laby-ui";
 
 import { ref } from "vue";
 export default {

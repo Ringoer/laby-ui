@@ -20,7 +20,7 @@
   </laby-table>
 </template>
 <script lang="ts">
-import { LabyTable, LabyButton } from "laby-ui-vue";
+import { LabyTable, LabyButton } from "laby-ui";
 
 import { ref } from "vue";
 export default {

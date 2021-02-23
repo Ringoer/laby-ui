@@ -18,7 +18,7 @@
       </tr>
       <tr v-if="insertVisible">
         <td v-for="key in keys" :key="key">
-          <input type="text" v-model="newData[key]" />
+          <laby-input v-model:value="newData[key]" />
         </td>
         <td>
           <laby-button @click="add">确定</laby-button>
@@ -36,13 +36,14 @@
   </laby-table>
 </template>
 <script lang="ts">
-import { LabyTable, LabyButton } from "laby-ui-vue";
+import { LabyTable, LabyButton, LabyInput } from "laby-ui";
 
 import { ref } from "vue";
 export default {
   components: {
     LabyTable,
     LabyButton,
+    LabyInput,
   },
   setup() {
     const heads = ref([

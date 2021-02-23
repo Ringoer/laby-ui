@@ -7,7 +7,7 @@
 </template>
 <script lang="ts">
 import { ref } from "vue";
-import { LabyButton } from "laby-ui-vue";
+import { LabyButton } from "laby-ui";
 export default {
   components: {
     LabyButton,

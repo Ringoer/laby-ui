@@ -5,6 +5,22 @@ import { guidances, components } from './Global'
 import Guidance from './views/Guidance.vue'
 import Content from './views/Content.vue'
 
+const guidancesRoutes = Object.keys(guidances).map(item => {
+  return {
+    path: item,
+    component: Guidance,
+    props: guidances[item]
+  }
+})
+const componentsRoutes = Object.keys(components).map(item => {
+  const path = item.toLowerCase()
+  return {
+    path,
+    component: Content,
+    props: components[item]
+  }
+})
+
 const history = createWebHistory()
 const router = createRouter({
   history,
@@ -13,15 +29,8 @@ const router = createRouter({
     {
       path: '/document', component: Document, children: [
         { path: '', redirect: '/document/introduction' },
-        { path: 'introduction', component: Guidance, props: guidances['introduction'] },
-        { path: 'install', component: Guidance, props: guidances['install'] },
-        { path: 'start', component: Guidance, props: guidances['start'] },
-        { path: 'button', component: Content, props: components['Button'] },
-        { path: 'card', component: Content, props: components['Card'] },
-        { path: 'dialog', component: Content, props: components['Dialog'] },
-        { path: 'switch', component: Content, props: components['Switch'] },
-        { path: 'table', component: Content, props: components['Table'] },
-        { path: 'tabs', component: Content, props: components['Tabs'] },
+        ...guidancesRoutes,
+        ...componentsRoutes
       ]
     }
   ]
