@@ -5,20 +5,17 @@ import { guidances, components } from './Global'
 import Guidance from './views/Guidance.vue'
 import Content from './views/Content.vue'
 
+function Route(path, component, props) {
+  this.path = path
+  this.component = component
+  this.props = props
+}
+
 const guidancesRoutes = Object.keys(guidances).map(item => {
-  return {
-    path: item,
-    component: Guidance,
-    props: guidances[item]
-  }
+  return new Route(item, Guidance, guidances[item])
 })
 const componentsRoutes = Object.keys(components).map(item => {
-  const path = item.toLowerCase()
-  return {
-    path,
-    component: Content,
-    props: components[item]
-  }
+  return new Route(item.toLowerCase(), Content, components[item])
 })
 
 const history = createWebHistory()
