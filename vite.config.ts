@@ -2,7 +2,6 @@
 import { md } from "./plugins/md";
 import fs from 'fs'
 import { baseParse } from '@vue/compiler-core'
-import { resolve } from 'path'
 
 export default {
   base: '/',//指定打包后文件的默认引用路径

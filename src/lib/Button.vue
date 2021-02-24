@@ -164,11 +164,15 @@ $radius: 4px;
   $base-color: $theme-color;
   @include layout(white);
   color: black;
-  border: 1px solid rgb(187, 187, 187);
+  > .laby-button-mask {
+    border: 1px solid rgb(187, 187, 187);
+  }
 
   &:not([loading="true"]):not([disabled]) {
     &:hover {
-      border: 1px solid $base-color;
+      > .laby-button-mask {
+        border: 1px solid $base-color;
+      }
       color: $base-color;
     }
   }
