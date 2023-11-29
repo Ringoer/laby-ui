@@ -22,5 +22,5 @@ yarn add laby-ui --save
 
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://ali.ringoer.com/cdn/laby-ui/laby.css">
+<link rel="stylesheet" href="https://static.ringoer.com/cdn/laby-ui/laby.css">
 ```
